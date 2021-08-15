@@ -1,10 +1,10 @@
-import * as React from "react"
+import * as React from "react";
 
-import { graphql, Link } from 'gatsby';
-import { StaticImage } from "gatsby-plugin-image"
+import { graphql, Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 
-import Layout from '../components/layout';
-import Seo from '../components/seo';
+import Layout from "../components/layout";
+import Seo from "../components/seo";
 
 const IndexPage = ({ data }) => {
   const posts = data.allMdx.nodes;
@@ -23,15 +23,15 @@ const IndexPage = ({ data }) => {
           <Link to={post.slug} key={post.slug}>
             <h2>{post.frontmatter.title}</h2>
           </Link>
-        )
+        );
       })}
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query {
-    allMdx(sort: {fields: frontmatter___title, order: ASC}) {
+    allMdx(sort: { fields: frontmatter___title, order: ASC }) {
       nodes {
         slug
         frontmatter {
@@ -40,6 +40,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default IndexPage
+export default IndexPage;
